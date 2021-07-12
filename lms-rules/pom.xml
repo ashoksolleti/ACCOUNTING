@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+   <name>Accounting Contract</name>
+    <description>
+        The ${project.name} contains the published interfaces of the Accounting subsystem.
+    </description>
+  <parent>
+    <artifactId>lms-pom</artifactId>
+    <groupId>com.unisys.trans.logistics.lms</groupId>
+    <version>1.0</version>
+    <relativePath>../../../lmscommon/implementation/lms-pom</relativePath>
+  </parent>
+  <artifactId>lms-rules</artifactId>
+	  <dependencies>
+  	<dependency>
+  		<groupId>com.unisys.trans.logistics.lms</groupId>
+  		<artifactId>lms-framework-contract</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.unisys.trans.logistics.lms</groupId>
+  		<artifactId>lms-utils-contract</artifactId>
+  	</dependency>
+<dependency>
+  		<groupId>com.unisys.trans.logistics.lms</groupId>
+  		<artifactId>lms-framework-server</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.unisys.trans.logistics.lms</groupId>
+  		<artifactId>lms-parts-contract</artifactId>
+  	</dependency>
+  	
+  	<dependency>
+		<groupId>com.unisys.trans.logistics.lms</groupId>
+		<artifactId>lms-rating-contract</artifactId>			
+	</dependency>
+	
+	<dependency>
+		<groupId>com.unisys.trans.logistics.lms</groupId>
+		<artifactId>lms-jaxb</artifactId>
+	</dependency>
+  	
+  </dependencies>
+	<profiles>
+		<profile>
+			<id>lmscontractjar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<finalName>lmscontract</finalName>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+</project>
